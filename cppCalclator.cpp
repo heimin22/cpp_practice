@@ -1,3 +1,7 @@
+#ifdef _WIN32
+#define _USE_MATH_DEFINES
+#endif
+
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -77,11 +81,7 @@ void process_operation(const vector<string>& tokens, double& last_result) {
 
 int main() {
     double last_result = 0;
-    string line, name;
-
-    cout << "Ano munang pangalan mo: ";
-    cin >> name;
-    cout << "Sige " + name << endl;
+    string line;
 
     cout << "Scientific Calculator (type 'exit' to quit)\n";
     cout << "Supported operations:\n- Basic: a + b, a x b\n- Advanced: pow a b, mod a b\n";
