@@ -52,7 +52,25 @@ void process_operation(const vector<string>& tokens, double& last_result) {
         string func = tokens[0];
 
         if (func == "sin") last_result = sin(num);
+        else if (func == "cos") last_result = cos(num);
+        else if (func == "tan") last_result = tan(num);
+        else if (func == "fact") last_result = factorial(num);
+        else if (func == "abs") last_result = abs(num);
+        else if (func == "sqrt") {
+            if (num < 0) throw invalid_argument("Error: bawal negative sa sqrt input haha");
+            last_result = sqrt(num);
+        }
+        else if (func == "log") {
+            if (num < 0) throw invalid_argument("Error: bawal negative sa log input haha");
+            last_result = log10(num);
+        }
+        else if (func == "ln") {
+            if (num < 0) throw invalid_argument("Error: bawal negative sa ln input haha");
+            last_result = log(num);
+        }
+        else throw invalid_argument("anong function naman yan. walang ganyan dito");
     }
+    else throw invalid_argument("invalid yang format mo pre kasi tanga ka");
 }
 
 
