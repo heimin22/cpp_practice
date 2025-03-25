@@ -18,6 +18,18 @@ double parse_number (const string& num_str, bool& is_degrees) {
     return stod(num_str);
 }
 
+double factorial(double n) {
+    if (n < 0 || n != static_cast<int>(n)) throw invalid_argument("Factorial requires non-negative integer");
+
+    double result = 1;
+    for (int i = 2; i <= n; ++i) result *= i;
+    return result;
+}
+
+
+
+
+
 int main() {
     double last_result = 0;
     string line, name;
