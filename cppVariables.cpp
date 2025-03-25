@@ -4,8 +4,11 @@ using namespace std;
 int main() {
     double num1, num2;
     char operation;
-
-    cout << "Enter ka ng equation (ito format: a + b):";
+    string name;
+    
+    cout << "Anong pangalan mo muna: ";
+    cin >> name;
+    cout << "Enter ka ng equation (ito format: a + b): ";
     cin >> num1 >> operation >> num2;
 
     if (operation == '+' ) {
@@ -26,7 +29,7 @@ int main() {
         }
     }
     else {
-        cout << "Gago bawal yan hahaha. +, * , -, at / lang pwede bobo" << endl;
+        cout << "Gago bawal yan hahaha. +, * , -, at / lang pwede.\nBobo mo " + name << endl;
     }
 
     return 0;
