@@ -19,14 +19,41 @@ double parse_number (const string& num_str, bool& is_degrees) {
 }
 
 double factorial(double n) {
-    if (n < 0 || n != static_cast<int>(n)) throw invalid_argument("Factorial requires non-negative integer");
+    if (n < 0 || n != static_cast<int>(n)) throw invalid_argument("Error: dapat positive lang tayo pre sa factorial");
 
     double result = 1;
     for (int i = 2; i <= n; ++i) result *= i;
     return result;
 }
 
+void process_operation(const vector<string>& tokens, double& last_result) {
+    if (tokens.size() == 3) {
+        double a = tokens[0] == "ans" ? last_result : stod(tokens[0]);
+        double b = tokens[2] == "ans" ? last_result : stod(tokens[2]);
+        string op = tokens[1];
 
+        if (op == "+") last_result = a + b;
+        else if (op == "-") last_result = a - b;
+        else if (op == "*" || op == "X" || op == "x") last_result = a * b;
+        else if (op == "/") {
+            if (b == 0) throw invalid_argument("Error: bawal division by zero rito tanga");
+            last_result = a / b;
+        }
+        else if (op == "pow") last_result = pow(a, b);
+        else if (op == "mod") {
+            if (b == 0) throw invalid_argument("Error: bawal kunin yung remainder kasi divide by zero yan tanga haha");
+            last_result = fmod(a, b);
+        }
+        else throw invalid_argument("tanginamo anong operator yan? ayos oy");
+    }
+    else if(tokens.size() == 2) {
+        bool degrees = false;
+        double num = tokens[1] == "ans" ? last_result : parse_number(tokens[1], degrees);
+        string func = tokens[0];
+
+        if (func == "sin") last_result = sin(num);
+    }
+}
 
 
 
