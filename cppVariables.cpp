@@ -29,7 +29,7 @@ int main() {
         }
     }
     else {
-        cout << "Gago bawal yan hahaha. +, * , -, at / lang pwede.\nBobo mo " + name << endl;
+        cout << "Gago bawal yan hahaha. +, * , -, at / lang pwede.\n Bobo mo " + name << endl;
     }
 
     return 0;
